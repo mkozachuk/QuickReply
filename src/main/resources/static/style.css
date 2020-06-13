@@ -1,0 +1,11 @@
+
+div{
+    font-size: 20px;
+    font-family: 'Arial';
+    margin: 60px;
+    color: black;
+}
+
+div:hover{
+    color: #cf0000;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count} + '_div'" th:text="${msg.text}">
+</div>
+
+<textarea th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count}" th:text="${msg.text}" hidden=true>
+</textarea>
+
+
+<script th:inline="javascript">
+    var s;
+    var list = [[${allMsg}]];
+    list.forEach(function (value) {
+        $(value).on('click', function () {
+            s = this.id;
+            s = s.slice(0, 4);
+            var aux = document.createElement("textarea");
+            aux.value = document.getElementById(s).value;
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+            alert('Copied!')
+        });
+    })
+
+</script>
+</body>
+</html>
