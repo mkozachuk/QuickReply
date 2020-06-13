@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<div th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count} + '_div'" th:text="${msg.text}">
+<div th:each="msg, stats : ${allMsgs}" th:id="'msg' + ${stats.count} + '_div'" th:text="${msg.text}">
 </div>
 
-<textarea th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count}" th:text="${msg.text}" hidden=true>
+<textarea th:each="msg, stats : ${allMsgs}" th:id="'msg' + ${stats.count}" th:text="${msg.text}" hidden=true>
 </textarea>
 
-<!--s = s.slice(0, 4);  s = this.id;-->
+
 <script th:inline="javascript">
     var s;
     var list = [[${allMsg}]];
