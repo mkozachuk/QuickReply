@@ -17,7 +17,7 @@
 
 <script th:inline="javascript">
     var s;
-    var list = [[${allMsg}]];
+    var list = [[${divNames}]];
     list.forEach(function (value) {
         $(value).on('click', function () {
             s = this.id.replace("_div", "");
