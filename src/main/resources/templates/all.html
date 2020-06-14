@@ -1,36 +1,191 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- META -->
     <meta charset="UTF-8">
-    <title>All</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Sassy | App Landing Page">
+    <meta name="author" content="droitlab">
+    <!-- SITE TITLE -->
+    <title>Sassy | App Landing Page</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <!--        <link rel="stylesheet" href="css/css/linearicons.css">-->
+    <link rel="stylesheet" th:href="@{/elegant-icon/style.css}">
+    <link rel="stylesheet" th:href="@{/simpleline-icon/css/simple-line-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/preset.css}">
+    <link rel="stylesheet" th:href="@{/css/scroll-animation.css}">
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <link rel="stylesheet" th:href="@{/css/theme-style.css}">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/Favicon_app.png}">
     <link rel="stylesheet" th:href="@{/style.css}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
+
 <body>
+<!-- MAIN NAV -->
+<div id="tooltip"></div>
+<div data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-fixed-top new_header">
+        <div class="container custome_container">
+            <div class="row br">
+                <div class="col-md-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand ex" href="index.html">
+                            <img class="main-logo" style="" src="images/sassy_white.png" alt="Home">
+                            <img class="logo-blue" src="images/sassy_black.png" alt="Home">
+                        </a>
+                        <!--Get-Now-Button-->
+                        <a class="btn-getnow new_btn" href="#">Get Now</a>
+                    </div>
+                    <div class="collapse navbar-collapse multi_page_menu_item" id="myNavbar">
+                        <ul id="menu-one-page" class="nav navbar-nav navbar-right multi">
+                            <li class="menu-item current_page_item"><a title="Home" href="./index.html#home">Home</a>
+                            </li>
+                            <li class="menu-item"><a title="Services" href="./index.html#services">Services</a></li>
+                            <li class="menu-item"><a title="Dashboard" href="./index.html#dashboard">Dashboard</a></li>
+                            <li class="menu-item"><a title="Features" href="./index.html#features">Features</a></li>
+                            <li class="menu-item"><a title="Pricing" href="./index.html#pricing">Pricing</a></li>
+                            <li class="menu-item"><a title="contact" href="./index.html#contact">Contact</a></li>
+                            <li class="menu-item active"><a title="blog" href="blog.html">All</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-<div th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count} + '_div'" th:text="${msg.text}">
-</div>
+            </div>
+        </div>
+    </nav>
+    <!-- END MAIN NAV -->
+    <!-- HEADER -->
+    <header class="blog-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="sec-title">All replies</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER -->
+    <!-- BLOG POST -->
+    <section id="blog-post" class="sec-blog-post bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="blog-post">
 
-<textarea th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count}" th:text="${msg.text}" hidden=true>
+
+                        <div th:each="msg, stats : ${allList}" class="text" th:id="'msg' + ${stats.count} + '_div'"
+                             th:text="${msg.text}" data-tooltip="Copied!">
+                        </div>
+
+
+                        <textarea th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count}" th:text="${msg.text}"
+                                  hidden=true>
 </textarea>
 
-<!--s = s.slice(0, 4);  s = this.id;-->
-<script th:inline="javascript">
-    var s;
-    var list = [[${allMsg}]];
-    list.forEach(function (value) {
-        $(value).on('click', function () {
-            s = this.id.replace("_div", "");
-            var aux = document.createElement("textarea");
-            aux.value = document.getElementById(s).value;
-            document.body.appendChild(aux);
-            aux.select();
-            document.execCommand("copy");
-            document.body.removeChild(aux);
-            alert('Copied!')
-        });
-    })
 
-</script>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END BLOG POST -->
+    <!-- FOOTER -->
+    <footer class="saas_footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-6 col-xs-6">
+                    <div class="f_widget about_widget">
+                        <a href="index.html" class="f_logo"><img src="images/sassy_logo.png" alt=""></a>
+                        <p>Repudiandae cubilia. Mus tortor? Accusamus libero ridiculus pellentesque duis aliquid laborum
+                            quisque iusto quo omnis tempus!</p>
+                        <ul class="f_social_icon">
+                            <li><a href="#"><i class="icon-social-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-social-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-social-instagram"></i></a></li>
+                            <li><a href="#"><i class="icon-social-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-social-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="border_top"></div>
+            <p class="copyright_text">Copyright © 2020 Powered by <a href="https://devodds.pl/">devodds.pl</a></p>
+        </div>
+    </footer>
+
+    <a href="#" class="scrollup"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Scripts -->
+
+    <script th:inline="javascript">
+        var s;
+        var list = [[${allMsg}]];
+        list.forEach(function (value) {
+            $(value).on('click', function () {
+
+                s = this.id.replace("_div", "");
+                var aux = document.createElement("textarea");
+                aux.value = document.getElementById(s).value;
+                document.body.appendChild(aux);
+                aux.select();
+                document.execCommand("copy");
+                document.body.removeChild(aux);
+            });
+        })
+
+    </script>
+
+    <script th:inline="javascript">
+        $('[data-tooltip]').click(function (eventObject) {
+
+            $data_tooltip = $(this).attr("data-tooltip");
+
+            $('#tooltip').text($data_tooltip)
+                .css({
+                    "top": eventObject.pageY + 5,
+                    "left": eventObject.pageX + 5
+                })
+                .show();
+
+        }).mouseout(function () {
+
+            $('#tooltip').hide()
+                .text("")
+                .css({
+                    "top": 0,
+                    "left": 0
+                });
+        });
+    </script>
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBumN1FxU0vF8HVI_qy9yFlwcZ4Wop_RtY"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.waypoints.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/owl.carousel.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins.js}"></script>
+    <script type="text/javascript" th:src="@{/js/gmap.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom-animations.js}"></script>
+    <script type="text/javascript" th:src="@{/js/theme.js}"></script>
+
+</div>
 </body>
+
 </html>

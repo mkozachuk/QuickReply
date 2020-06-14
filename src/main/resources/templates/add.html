@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add your own reply</h1>
+<form method="POST" th:object="${message}" th:action="@{/messages/add}">
+    <div>
+        <textarea th:field="*{text}" th:label="Text">Add reply here...</textarea>
+    </div>
+
+    <select class="custom-select" id="dropDownSelect2" th:field="*{cat_id}">
+        <option selected disabled value="">Choose category</option>
+        <option th:each="category : ${allCategories}" th:value="${category.id}"
+                th:text="${category.category_name}">
+        </option>
+    </select>
+
+    <button type="submit">Add reply</button>
+</form>
+
+</body>
+</html>

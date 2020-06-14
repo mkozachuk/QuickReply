@@ -1,10 +1,13 @@
 package pl.devodds.mkozachuk.quickreply.controllers;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.devodds.mkozachuk.quickreply.models.Category;
 import pl.devodds.mkozachuk.quickreply.models.Message;
@@ -66,8 +69,34 @@ public class MessageController {
         return "social";
     }
 
+    @ModelAttribute(name = "message")
+    public Message message() {
+        return new Message();
+    }
+
+    @GetMapping("/add")
+    public String customReply(Model model){
+        model.addAttribute("newMessage", message());
+        List<Category> allCategories = new ArrayList<>(categoryController.getAll());
+        model.addAttribute("allCategories", allCategories);
+
+        return "add";
+    }
+
+    @PostMapping("/add")
+    public String processCustomReply(@ModelAttribute("message") Message message, Errors errors){
+        message.setCategory(categoryController.findById(Long.valueOf(message.getCat_id())));
+        System.out.println(message.getCategory());
+        System.out.println(errors);
+
+        messageRepository.save(message);
+
+        return "redirect:/";
+    }
+
+
     public void addCategorizedMessages(Model model, int categoryId){
-        List<Message> alllMsgs = new ArrayList<>(messageRepository.getMessagesByCategory(categoryController.getAll().get(categoryId)));
+        List<Message> alllMsgs = new ArrayList<>(getMsgByCategoty(categoryController.getAll().get(categoryId)));
         model.addAttribute("allMsgs", alllMsgs);
         List<String> divNames = new ArrayList<>();
         for (int i = 0; i < alllMsgs.size(); i++) {

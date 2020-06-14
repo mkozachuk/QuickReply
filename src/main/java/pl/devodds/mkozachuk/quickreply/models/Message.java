@@ -20,6 +20,9 @@ public class Message {
     private String text;;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "category_id")
     private Category category;
+
+    @Transient
+    private String cat_id;
 }
