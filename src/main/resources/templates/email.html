@@ -50,7 +50,7 @@
                             <img class="logo-blue" th:src="@{/images/quick-reply-logo.png}" alt="Home">
                         </a>
                         <!--Get-Now-Button-->
-<!--                        <a class="btn-getnow new_btn" href="#">Get Now</a>-->
+                        <!--                        <a class="btn-getnow new_btn" href="#">Get Now</a>-->
                     </div>
                     <div class="collapse navbar-collapse multi_page_menu_item" id="myNavbar">
                         <ul id="menu-one-page" class="nav navbar-nav navbar-right multi">
@@ -58,11 +58,15 @@
                             </li>
                             <li class="menu-item"><a title="Services" th:href="@{/messages/all}">All</a></li>
 
-                            <li class="menu-item"><a title="Services" th:href="@{/messages/add}">Add my own reply</a></li>
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/add}">Add my own reply</a>
+                            </li>
 
-                            <li class="menu-item current_page_item active"><a title="Home" th:href="@{/messages/email}">e-mail</a></li>
-                            <li class="menu-item "><a title="Services" th:href="@{/messages/messenger}">messengers</a></li>
-                            <li class="menu-item"><a title="Dashboard" th:href="@{/messages/social}">social networks</a></li>
+                            <li class="menu-item current_page_item active"><a title="Home" th:href="@{/messages/email}">e-mail</a>
+                            </li>
+                            <li class="menu-item "><a title="Services" th:href="@{/messages/messenger}">messengers</a>
+                            </li>
+                            <li class="menu-item"><a title="Dashboard" th:href="@{/messages/social}">social networks</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -90,13 +94,14 @@
                     <div class="blog-post">
 
 
-                        <div th:each="msg, stats : ${allMsgs}" class="text" style="overflow-y:scroll" th:id="'msg' + ${stats.count} + '_div'"
-                             th:text="${msg.text}" data-tooltip="Copied!">
-                        </div>
+<!--                        <div th:each="msg, stats : ${allMsgs}" class="text" style="overflow-y:scroll"-->
+<!--                             th:id="'msg' + ${stats.count} + '_div'"-->
+<!--                             th:text="${msg.text}" data-tooltip="Copied!">-->
+<!--                        </div>-->
 
 
-                        <textarea th:each="msg, stats : ${allMsgs}" th:id="'msg' + ${stats.count}" th:text="${msg.text}"
-                                  hidden=true>
+                        <textarea th:each="msg, stats : ${allMsgs}" th:id="'msg' + ${stats.count}" class="text" style="overflow-y:scroll" th:text="${msg.text}"
+                                  data-tooltip="Copied!">
 </textarea>
 
 
@@ -116,7 +121,8 @@
                         <a href="index.html" class="f_logo"><img src="images/sassy_logo.png" alt=""></a>
                         <p>One click and your reply is ready!</p>
                         <ul class="f_social_icon">
-                            <li><a href="https://www.linkedin.com/in/maksym-kozachuk"><i class="icon-social-linkedin"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/maksym-kozachuk"><i
+                                    class="icon-social-linkedin"></i></a></li>
                             <li><a href="https://github.com/mkozachuk"><i class="icon-social-github"></i></a></li>
                             <li><a href="https://devodds.pl"><i class="icon-social-dribbble"></i></a></li>
                         </ul>
@@ -138,7 +144,7 @@
         list.forEach(function (value) {
             $(value).on('click', function () {
 
-                s = this.id.replace("_div", "");
+                s = this.id;
                 var aux = document.createElement("textarea");
                 aux.value = document.getElementById(s).value;
                 document.body.appendChild(aux);

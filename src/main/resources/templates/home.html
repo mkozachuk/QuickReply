@@ -45,18 +45,22 @@
                             <img class="main-logo" style="" th:src="@{/images/quick-reply-logo.png}" alt="Home">
                             <img class="logo-blue" th:src="@{/images/quick-reply-logo.png}" alt="Home">
                         </a>
-<!--                        &lt;!&ndash;Get-Now-Button&ndash;&gt;-->
-<!--                        <a class="btn-getnow new_btn" href="#">Get Now</a>-->
+                        <!--                        &lt;!&ndash;Get-Now-Button&ndash;&gt;-->
+                        <!--                        <a class="btn-getnow new_btn" href="#">Get Now</a>-->
                     </div>
                     <div class="collapse navbar-collapse multi_page_menu_item" id="myNavbar">
                         <ul id="menu-one-page" class="nav navbar-nav navbar-right multi">
                             <li class="menu-item"><a title="Services" th:href="@{/messages/all}">All</a></li>
 
-                            <li class="menu-item"><a title="Services" th:href="@{/messages/add}">Add my own reply</a></li>
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/add}">Add my own reply</a>
+                            </li>
 
-                            <li class="menu-item current_page_item"><a title="Home" th:href="@{/messages/email}">e-mail</a></li>
-                            <li class="menu-item"><a title="Services" th:href="@{/messages/messenger}">messengers</a></li>
-                            <li class="menu-item"><a title="Dashboard" th:href="@{/messages/social}">social networks</a></li>
+                            <li class="menu-item current_page_item"><a title="Home"
+                                                                       th:href="@{/messages/email}">e-mail</a></li>
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/messenger}">messengers</a>
+                            </li>
+                            <li class="menu-item"><a title="Dashboard" th:href="@{/messages/social}">social networks</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -104,9 +108,9 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="n_features_item">
                         <a th:href="@{/messages/email}">
-                        <div class="n_round_icon">
-                            <img th:src="@{/images/new/icon/email.png}" alt="" >
-                        </div>
+                            <div class="n_round_icon">
+                                <img th:src="@{/images/new/icon/email.png}" alt="">
+                            </div>
                         </a>
                         <h3>Email</h3>
                         <p>replies for email</p>
@@ -115,9 +119,9 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="n_features_item">
                         <a th:href="@{/messages/messenger}">
-                        <div class="n_round_icon">
-                            <img th:src="@{/images/new/icon/messenger.png}" alt="" >
-                        </div>
+                            <div class="n_round_icon">
+                                <img th:src="@{/images/new/icon/messenger.png}" alt="">
+                            </div>
                         </a>
                         <h3>Messengers</h3>
                         <p>replies for messengers</p>
@@ -126,9 +130,9 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="n_features_item">
                         <a th:href="@{/messages/social}">
-                        <div class="n_round_icon">
-                            <img th:src="@{/images/new/icon/social.png}" alt="" >
-                        </div>
+                            <div class="n_round_icon">
+                                <img th:src="@{/images/new/icon/social.png}" alt="">
+                            </div>
                         </a>
                         <h3>Social Networks</h3>
                         <p>replies for social networks</p>
@@ -138,7 +142,7 @@
         </div>
     </section>
 
-<!--    </footer>-->
+    <!--    </footer>-->
     <a href="#" class="scrollup"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Scripts -->
     <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
@@ -153,10 +157,6 @@
     <script type="text/javascript" th:src="@{/js/parallax.js}"></script>
     <script type="text/javascript" th:src="@{/js/custom-animations.js}"></script>
     <script type="text/javascript" th:src="@{/js/theme.js}"></script>
-
-
-
-
 
 
 </div>

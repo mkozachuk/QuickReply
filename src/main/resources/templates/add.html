@@ -54,7 +54,8 @@
                             </li>
                             <li class="menu-item"><a title="Services" th:href="@{/messages/all}">All</a></li>
 
-                            <li class="menu-item active"><a title="Services" th:href="@{/messages/add}">Add my own reply</a>
+                            <li class="menu-item active"><a title="Services" th:href="@{/messages/add}">Add my own
+                                reply</a>
                             </li>
 
                             <li class="menu-item current_page_item"><a title="Home"
@@ -98,14 +99,16 @@
                                               id="blog-submit-message" rows="10" required th:field="*{text}"></textarea>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 40px;">
-                                <select class="custom-select" id="dropDownSelect1" th:field="*{cat_id}">
-                                    <option selected disabled value="">Choose category</option>
-                                    <option th:each="category : ${allCategories}" th:value="${category.id}"
-                                            th:text="${category.category_name}">
-                                    </option>
-                                </select>
+                                    <select class="custom-select" id="dropDownSelect1" th:field="*{cat_id}">
+                                        <option selected disabled value="">Choose category</option>
+                                        <option th:each="category : ${allCategories}" th:value="${category.id}"
+                                                th:text="${category.category_name}">
+                                        </option>
+                                    </select>
                                 </div>
-                                <button id="submit" type="submit" name="submit" style="margin: auto;display: table;">Post your reply</button>
+                                <button id="submit" type="submit" name="submit" style="margin: auto;display: table;">
+                                    Post your reply
+                                </button>
                             </form>
 
                         </div>
@@ -125,7 +128,8 @@
                         <a href="index.html" class="f_logo"><img src="images/sassy_logo.png" alt=""></a>
                         <p>One click and your reply is ready!</p>
                         <ul class="f_social_icon">
-                            <li><a href="https://www.linkedin.com/in/maksym-kozachuk"><i class="icon-social-linkedin"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/maksym-kozachuk"><i
+                                    class="icon-social-linkedin"></i></a></li>
                             <li><a href="https://github.com/mkozachuk"><i class="icon-social-github"></i></a></li>
                             <li><a href="https://devodds.pl"><i class="icon-social-dribbble"></i></a></li>
                         </ul>
