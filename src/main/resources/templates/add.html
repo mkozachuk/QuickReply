@@ -1,25 +1,155 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- META -->
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Quick Reply - it's easy">
+    <meta name="author" content="droitlab">
+    <!-- SITE TITLE -->
+    <title>Quick Reply - it's easy</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <!--        <link rel="stylesheet" href="css/css/linearicons.css">-->
+    <link rel="stylesheet" th:href="@{/elegant-icon/style.css}">
+    <link rel="stylesheet" th:href="@{/simpleline-icon/css/simple-line-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/preset.css}">
+    <link rel="stylesheet" th:href="@{/css/scroll-animation.css}">
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+    <link rel="stylesheet" th:href="@{/css/theme-style.css}">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/Favicon_app.png}">
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
-<h1>Add your own reply</h1>
-<form method="POST" th:object="${message}" th:action="@{/messages/add}">
-    <div>
-        <textarea th:field="*{text}" th:label="Text">Add reply here...</textarea>
-    </div>
+<div data-spy="scroll" data-target=".navbar" data-offset="50">
+    <nav class="navbar navbar-fixed-top new_header">
+        <div class="container custome_container">
+            <div class="row br">
+                <div class="col-md-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand ex" th:href="@{/}">
+                            <img class="main-logo" style="" th:src="@{/images/quick-reply-logo.png}" alt="Home">
+                            <img class="logo-blue" th:src="@{/images/quick-reply-logo.png}" alt="Home">
+                        </a>
+                        <!--Get-Now-Button-->
+                        <!--                        <a class="btn-getnow new_btn" href="#">Get Now</a>-->
+                    </div>
+                    <div class="collapse navbar-collapse multi_page_menu_item" id="myNavbar">
+                        <ul id="menu-one-page" class="nav navbar-nav navbar-right multi">
+                            <li class="menu-item current_page_item"><a title="Home" th:href="@{/}">Home</a>
+                            </li>
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/all}">All</a></li>
 
-    <select class="custom-select" id="dropDownSelect2" th:field="*{cat_id}">
-        <option selected disabled value="">Choose category</option>
-        <option th:each="category : ${allCategories}" th:value="${category.id}"
-                th:text="${category.category_name}">
-        </option>
-    </select>
+                            <li class="menu-item active"><a title="Services" th:href="@{/messages/add}">Add my own reply</a>
+                            </li>
 
-    <button type="submit">Add reply</button>
-</form>
+                            <li class="menu-item current_page_item"><a title="Home"
+                                                                       th:href="@{/messages/email}">e-mail</a></li>
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/messenger}">messengers</a>
+                            </li>
+                            <li class="menu-item"><a title="Dashboard" th:href="@{/messages/social}">social
+                                networks</a></li>
+                        </ul>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </nav>
+    <!-- END MAIN NAV -->
+    <!-- HEADER -->
+    <header class="blog-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="sec-title">Add your own <br> reply</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="blog-post" class="sec-blog-post bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="blog-post">
+
+
+                        <div class="blog-submit">
+                            <h4>Provide your reply</h4>
+                            <form method="POST" th:object="${message}" th:action="@{/messages/add}">
+                                <div class="form-group col-sm-12">
+                                    <label for="blog-submit-message"></label>
+                                    <textarea name="submission_message" placeholder="Message" class="form-control"
+                                              id="blog-submit-message" rows="10" required th:field="*{text}"></textarea>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 40px;">
+                                <select class="custom-select" id="dropDownSelect1" th:field="*{cat_id}">
+                                    <option selected disabled value="">Choose category</option>
+                                    <option th:each="category : ${allCategories}" th:value="${category.id}"
+                                            th:text="${category.category_name}">
+                                    </option>
+                                </select>
+                                </div>
+                                <button id="submit" type="submit" name="submit" style="margin: auto;display: table;">Post your reply</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="saas_footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-6 col-xs-6">
+                    <div class="f_widget about_widget">
+                        <a href="index.html" class="f_logo"><img src="images/sassy_logo.png" alt=""></a>
+                        <p>One click and your reply is ready!</p>
+                        <ul class="f_social_icon">
+                            <li><a href="https://www.linkedin.com/in/maksym-kozachuk"><i class="icon-social-linkedin"></i></a></li>
+                            <li><a href="https://github.com/mkozachuk"><i class="icon-social-github"></i></a></li>
+                            <li><a href="https://devodds.pl"><i class="icon-social-dribbble"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="border_top"></div>
+            <p class="copyright_text">Copyright © 2020 Powered by <a href="https://devodds.pl/">devodds.pl</a></p>
+        </div>
+    </footer>
+
+    <a href="#" class="scrollup"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBumN1FxU0vF8HVI_qy9yFlwcZ4Wop_RtY"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.waypoints.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/owl.carousel.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins.js}"></script>
+    <script type="text/javascript" th:src="@{/js/gmap.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom-animations.js}"></script>
+    <script type="text/javascript" th:src="@{/js/theme.js}"></script>
+</div>
 </body>
 </html>

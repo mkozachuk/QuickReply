@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Sassy | App Landing Page">
+    <meta name="description" content="Quick Reply - it's easy">
     <meta name="author" content="droitlab">
     <!-- SITE TITLE -->
-    <title>Sassy | App Landing Page</title>
+    <title>Quick Reply - it's easy</title>
+
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
@@ -44,23 +45,24 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand ex" href="index.html">
-                            <img class="main-logo" style="" src="images/sassy_white.png" alt="Home">
-                            <img class="logo-blue" src="images/sassy_black.png" alt="Home">
+                        <a class="navbar-brand ex" th:href="@{/}">
+                            <img class="main-logo" style="" th:src="@{/images/quick-reply-logo.png}" alt="Home">
+                            <img class="logo-blue" th:src="@{/images/quick-reply-logo.png}" alt="Home">
                         </a>
                         <!--Get-Now-Button-->
-                        <a class="btn-getnow new_btn" href="#">Get Now</a>
+<!--                        <a class="btn-getnow new_btn" href="#">Get Now</a>-->
                     </div>
                     <div class="collapse navbar-collapse multi_page_menu_item" id="myNavbar">
                         <ul id="menu-one-page" class="nav navbar-nav navbar-right multi">
-                            <li class="menu-item current_page_item"><a title="Home" href="./index.html#home">Home</a>
+                            <li class="menu-item current_page_item"><a title="Home" th:href="@{/}">Home</a>
                             </li>
-                            <li class="menu-item"><a title="Services" href="./index.html#services">Services</a></li>
-                            <li class="menu-item"><a title="Dashboard" href="./index.html#dashboard">Dashboard</a></li>
-                            <li class="menu-item"><a title="Features" href="./index.html#features">Features</a></li>
-                            <li class="menu-item"><a title="Pricing" href="./index.html#pricing">Pricing</a></li>
-                            <li class="menu-item"><a title="contact" href="./index.html#contact">Contact</a></li>
-                            <li class="menu-item active"><a title="blog" href="blog.html">All</a></li>
+                            <li class="menu-item active"><a title="Services" th:href="@{/messages/all}">All</a></li>
+
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/add}">Add my own reply</a></li>
+
+                            <li class="menu-item current_page_item"><a title="Home" th:href="@{/messages/email}">e-mail</a></li>
+                            <li class="menu-item"><a title="Services" th:href="@{/messages/messenger}">messengers</a></li>
+                            <li class="menu-item"><a title="Dashboard" th:href="@{/messages/social}">social networks</a></li>
                         </ul>
                     </div>
                 </div>
@@ -88,13 +90,13 @@
                     <div class="blog-post">
 
 
-                        <div th:each="msg, stats : ${allList}" class="text" th:id="'msg' + ${stats.count} + '_div'"
-                             th:text="${msg.text}" data-tooltip="Copied!">
-                        </div>
+<!--                        <div th:each="msg, stats : ${allList}" class="text" style="overflow-y:scroll" th:id="'msg' + ${stats.count} + '_div'"-->
+<!--                             th:text="${msg.text}" data-tooltip="Copied!">-->
+<!--                        </div>-->
 
 
-                        <textarea th:each="msg, stats : ${allList}" th:id="'msg' + ${stats.count}" th:text="${msg.text}"
-                                  hidden=true>
+                        <textarea readonly th:each="msg, stats : ${allList}" class="text" style="overflow-y:scroll" th:id="'msg' + ${stats.count}" th:text="${msg.text}"
+                                  data-tooltip="Copied!">
 </textarea>
 
 
@@ -112,14 +114,11 @@
                 <div class="col-md-12 col-sm-6 col-xs-6">
                     <div class="f_widget about_widget">
                         <a href="index.html" class="f_logo"><img src="images/sassy_logo.png" alt=""></a>
-                        <p>Repudiandae cubilia. Mus tortor? Accusamus libero ridiculus pellentesque duis aliquid laborum
-                            quisque iusto quo omnis tempus!</p>
+                        <p>One click and your reply is ready!</p>
                         <ul class="f_social_icon">
-                            <li><a href="#"><i class="icon-social-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-social-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-social-instagram"></i></a></li>
-                            <li><a href="#"><i class="icon-social-linkedin"></i></a></li>
-                            <li><a href="#"><i class="icon-social-google"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/maksym-kozachuk"><i class="icon-social-linkedin"></i></a></li>
+                            <li><a href="https://github.com/mkozachuk"><i class="icon-social-github"></i></a></li>
+                            <li><a href="https://devodds.pl"><i class="icon-social-dribbble"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,13 +132,14 @@
     <a href="#" class="scrollup"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Scripts -->
 
+
     <script th:inline="javascript">
         var s;
         var list = [[${allMsg}]];
         list.forEach(function (value) {
             $(value).on('click', function () {
 
-                s = this.id.replace("_div", "");
+                s = this.id;
                 var aux = document.createElement("textarea");
                 aux.value = document.getElementById(s).value;
                 document.body.appendChild(aux);
