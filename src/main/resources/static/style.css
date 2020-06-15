@@ -4,10 +4,14 @@
     font-family: 'Arial';
     margin: 60px;
     color: black;
+    text-align: left;
 }
 
 .text:hover{
-    color: #cf0000;
+    /*color: #cf0000;*/
+    -webkit-text-stroke: 1px rgba(138, 86, 233, 0.51);
+    -webkit-text-fill-color: rgb(95, 111, 254);
+
 }
 
 #tooltip {
@@ -38,5 +42,15 @@
     margin: auto;
     margin-top: 30px;
 
-
 }
+
+.custom-select{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.saas_footer_area{
+    padding-top: 0;
+}
+

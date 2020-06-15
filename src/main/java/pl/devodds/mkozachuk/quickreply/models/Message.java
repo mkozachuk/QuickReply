@@ -26,3 +26,4 @@ public class Message {
     @Transient
     private String cat_id;
 }
+

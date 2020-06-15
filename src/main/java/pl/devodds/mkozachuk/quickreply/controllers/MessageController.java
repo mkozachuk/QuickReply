@@ -44,7 +44,8 @@ public class MessageController {
         List<String> allmsg = new ArrayList<>();
         for (int i = 0; i < allList.size(); i++) {
             int num = i + 1;
-            allmsg.add("#msg" + num + "_div");
+            allmsg.add("#msg" + num );
+
         }
         model.addAttribute("allMsg", allmsg);
 
@@ -91,7 +92,7 @@ public class MessageController {
 
         messageRepository.save(message);
 
-        return "redirect:/";
+        return "redirect:/messages/all";
     }
 
 
