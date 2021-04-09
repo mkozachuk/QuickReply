@@ -25,16 +25,16 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    public List<Message> getAllMsgs() {
+    public List<Message> getAllMessages() {
         return (List<Message>) messageRepository.findAll();
     }
 
-    public List<Message> getMsgByCategoty(Category category) {
+    public List<Message> getMsgByCategory(Category category) {
         return messageRepository.getMessagesByCategory(category);
     }
 
     public void addCategorizedMessages(Model model, int categoryId) {
-        List<Message> alllMsgs = new ArrayList<>(getMsgByCategoty(categoryService.getAll().get(categoryId)));
+        List<Message> alllMsgs = new ArrayList<>(getMsgByCategory(categoryService.getAll().get(categoryId)));
         model.addAttribute("allMsgs", alllMsgs);
         List<String> divNames = new ArrayList<>();
         for (int i = 0; i < alllMsgs.size(); i++) {
